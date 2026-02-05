@@ -1,2 +1,3 @@
-export * from './utils/colorUtils'
-export { Tooltip } from './Tooltip/Tooltip'
+export * from './utils/colorUtils';
+export { Tooltip } from './ui/Tooltip/Tooltip';
+export { MainLayout } from './ui/MainLayout/MainLayout';

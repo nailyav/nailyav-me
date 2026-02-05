@@ -2,7 +2,7 @@ import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import styles from './Tooltip.module.css';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
-import { hexToRgba } from '../utils/colorUtils';
+import { hexToRgba } from '../../utils/colorUtils';
 
 export interface TooltipProps {
     /** Текст подсказки */
