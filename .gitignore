@@ -3,5 +3,4 @@ node_modules
 .dockerignore
 README.md
 .env
-build
 .vscode

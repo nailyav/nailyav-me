@@ -29,7 +29,7 @@ export default (env: BuildEnv) => {
             new BundleAnalyzerPlugin({
                 openAnalyzer: false,
                 analyzerPort: 8885,
-                analyzerMode: isDev ? 'server' : 'static'
+                analyzerMode: isDev ? 'server' : 'static',
             })
         );
     }
@@ -47,7 +47,7 @@ export default (env: BuildEnv) => {
             rules: [
                 {
                     test: /\.tsx?$/,
-                    use: "ts-loader",
+                    use: 'ts-loader',
                     exclude: /node_modules/,
                 },
                 {
@@ -59,7 +59,9 @@ export default (env: BuildEnv) => {
                             options: {
                                 modules: {
                                     auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                                    localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                                    localIdentName: isDev
+                                        ? '[path][name]__[local]--[hash:base64:5]'
+                                        : '[hash:base64:8]',
                                     namedExport: false,
                                     exportLocalsConvention: 'as-is',
                                 },
@@ -67,13 +69,21 @@ export default (env: BuildEnv) => {
                         },
                         'sass-loader',
                     ],
-                }
+                },
             ],
         },
         devtool: isDev ? 'inline-source-map' : undefined,
         plugins,
         resolve: {
-            extensions: [".tsx", ".ts", ".js"],
+            extensions: ['.tsx', '.ts', '.js'],
+            alias: {
+                shared: resolve(__dirname, './src/shared/index'),
+                widgets: resolve(__dirname, './src/widgets/index'),
+                pages: resolve(__dirname, './src/pages/index'),
+                entities: resolve(__dirname, './src/entities/index'),
+                features: resolve(__dirname, './src/features/index'),
+                app: resolve(__dirname, './src/app/index'),
+            },
         },
 
         devServer: {
@@ -82,13 +92,13 @@ export default (env: BuildEnv) => {
             hot: true,
             compress: true,
             historyApiFallback: true,
-            allowedHosts: "all",
+            allowedHosts: 'all',
             client: {
                 overlay: {
                     errors: true,
                     warnings: true,
-                }
+                },
             },
         },
-    }
-}
+    };
+};

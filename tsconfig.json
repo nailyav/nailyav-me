@@ -9,10 +9,21 @@
         "allowJs": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["src/*"], 
+            "widgets/*": ["src/widgets/*"],
+            "pages/*": ["src/pages/*"],
+            "shared/*": ["src/shared/*"],
+            "entities/*": ["src/entities/*"],
+            "features/*": ["src/features/*"],
+            "app/*": ["src/app/*"]
+        },
     },
     "include": [
         "src/**/*",
         "src/**/d.ts"
-    ]
+    ],
+    "exclude": ["node_modules"]
 }
