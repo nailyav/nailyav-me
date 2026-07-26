@@ -1,0 +1,386 @@
+.timerCard {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 245, 249, 0.96) 100%);
+    box-shadow:
+        0 20px 50px rgba(164, 127, 147, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 154, 194, 0.22);
+    backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.badge {
+    width: fit-content;
+    max-width: 100%;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 154, 194, 0.16);
+    color: var(--dark-pink);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--dark-pink);
+    line-height: 1.15;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #a47f93;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    border-radius: 24px;
+    background: radial-gradient(circle at top, rgba(255, 192, 220, 0.35), rgba(255, 255, 255, 0.92));
+    border: 1px solid rgba(255, 154, 194, 0.26);
+    box-shadow: inset 0 1px 12px rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+
+    span {
+        font-size: 56px;
+        line-height: 1;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--dark-pink);
+        text-align: center;
+        word-break: break-word;
+    }
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 154, 194, 0.18);
+    min-width: 0;
+}
+
+.statLabel {
+    font-size: 14px;
+    font-weight: 400;
+    color: #a47f93;
+}
+
+.statValue {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--dark-pink);
+    word-break: break-word;
+}
+
+.actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.button {
+    border: none;
+    border-radius: 16px;
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 10px 24px rgba(255, 154, 194, 0.24);
+}
+
+.primary:hover {
+    background: #fb8cb8;
+}
+
+.secondary {
+    background: rgba(255, 154, 194, 0.14);
+    color: var(--dark-pink);
+    border: 1px solid rgba(255, 154, 194, 0.2);
+}
+
+.secondary:hover {
+    background: rgba(255, 154, 194, 0.22);
+}
+
+.ghost {
+    background: rgba(255, 255, 255, 0.7);
+    color: #a47f93;
+    border: 1px solid rgba(164, 127, 147, 0.15);
+}
+
+.ghost:hover {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.sessionResult {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: rgba(255, 245, 249, 0.95);
+    border: 1px solid rgba(255, 154, 194, 0.22);
+}
+
+.sessionTitle {
+    font-size: 14px;
+    color: #a47f93;
+}
+
+.sessionTime {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark-pink);
+    word-break: break-word;
+}
+
+@media (max-width: 900px) {
+    .timerCard {
+        padding: 28px;
+        border-radius: 24px;
+        gap: 22px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .clock {
+        padding: 24px;
+    }
+
+    .clock span {
+        font-size: 48px;
+    }
+
+    .statValue {
+        font-size: 22px;
+    }
+
+    .sessionTime {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timerCard {
+        padding: 24px;
+        border-radius: 22px;
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .clock {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .clock span {
+        font-size: 42px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .timerCard {
+        padding: 24px;
+        border-radius: 22px;
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .clock {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .clock span {
+        font-size: 42px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 530px) {
+    .timerCard {
+        padding: 20px 16px;
+        border-radius: 18px;
+        gap: 18px;
+    }
+
+    .badge {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    .clock {
+        padding: 18px 12px;
+        border-radius: 18px;
+    }
+
+    .clock span {
+        font-size: 34px;
+        letter-spacing: 0.02em;
+    }
+
+    .statItem,
+    .sessionResult {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .statLabel,
+    .sessionTitle {
+        font-size: 13px;
+    }
+
+    .statValue {
+        font-size: 20px;
+    }
+
+    .sessionTime {
+        font-size: 24px;
+    }
+
+    .actions {
+        gap: 10px;
+    }
+
+    .button {
+        padding: 12px 16px;
+        font-size: 16px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 424px) {
+    .timerCard {
+        padding: 16px 12px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .clock span {
+        font-size: 24px;
+    }
+
+    .statValue {
+        font-size: 18px;
+    }
+
+    .sessionTime {
+        font-size: 22px;
+    }
+
+    .button {
+        font-size: 15px;
+        padding: 11px 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .timerCard {
+        padding: 16px 12px;
+        gap: 15px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .clock span {
+        font-size: 24px;
+    }
+
+    .statValue {
+        font-size: 18px;
+    }
+
+    .sessionTime {
+        font-size: 22px;
+    }
+
+    .button {
+        font-size: 15px;
+        padding: 11px 14px;
+    }
+}

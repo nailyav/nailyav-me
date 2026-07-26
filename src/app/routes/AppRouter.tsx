@@ -1,6 +1,6 @@
-import { HomePage, NotFoundPage, ProjectCardPage } from 'pages';
+import { AppPage, HomePage, NotFoundPage, ProjectCardPage } from 'pages';
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import { MainLayout } from 'shared';
 
 export const AppRouter = () => {
@@ -14,8 +14,20 @@ export const AppRouter = () => {
                     element: <HomePage />,
                 },
                 {
+                    path: '/projects',
+                    element: <Navigate to="/" replace />,
+                },
+                {
+                    path: '/apps',
+                    element: <Navigate to="/" replace />,
+                },
+                {
                     path: '/projects/:id',
                     element: <ProjectCardPage />,
+                },
+                {
+                    path: '/apps/:id',
+                    element: <AppPage />,
                 },
                 {
                     path: '*',

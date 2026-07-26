@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
-import styles from './Tooltip.module.css';
+import styles from './Tooltip.module.scss';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import { hexToRgba } from '../../utils/colorUtils';

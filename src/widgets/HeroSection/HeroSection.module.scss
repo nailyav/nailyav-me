@@ -1,0 +1,294 @@
+.hero {
+    min-height: calc(100vh - 200px);
+    padding: 60px 100px;
+    color: var(--dark-pink);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.textBlock {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.marker {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    color: white;
+    font-weight: 400;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -0.12em;
+        right: -0.12em;
+        bottom: -0.15em;
+        height: 1.5em;
+        background: rgba(255, 154, 194, 0.8);
+        border-radius: 0.25em;
+        z-index: -1;
+        transform: rotate(-1.3deg);
+    }
+}
+
+.buttonContainer {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+}
+
+.buttonPrimary,
+.buttonSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+    height: fit-content;
+    padding: 14px 22px;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: 300;
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    box-sizing: border-box;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+}
+
+.buttonPrimary {
+    color: white;
+    background-color: var(--pink);
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: #fb8cb8;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        background-color: #f47aab;
+        transform: translateY(0);
+    }
+}
+
+.buttonSecondary {
+    color: var(--dark-pink);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 154, 194, 0.45);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.72);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.list {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.h1 {
+    margin: 0;
+    margin-bottom: 45px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 300;
+    color: #a47f93;
+    margin: 5px 0;
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        padding: 48px 64px;
+        gap: 28px;
+    }
+
+    .h1 {
+        font-size: 54px;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .buttonPrimary,
+    .buttonSecondary {
+        font-size: 20px;
+        padding: 13px 20px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    .list {
+        gap: 12px 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+        padding: 40px 32px;
+        gap: 24px;
+    }
+
+    .textBlock,
+    .buttonContainer,
+    .list {
+        flex: unset;
+    }
+
+    .h1 {
+        font-size: 44px;
+        margin-bottom: 24px;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 1.45;
+    }
+
+    .marker::before {
+        height: 1.35em;
+        bottom: 0.11em;
+    }
+
+    .buttonPrimary,
+    .buttonSecondary {
+        font-size: 18px;
+        padding: 12px 18px;
+    }
+
+    .list {
+        justify-content: flex-start;
+        gap: 10px 16px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 28px 18px;
+        gap: 20px;
+    }
+
+    .info {
+        gap: 12px;
+    }
+
+    .h1 {
+        font-size: 34px;
+        line-height: 1.1;
+        margin-bottom: 18px;
+    }
+
+    h2 {
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    .marker::before {
+        height: 1.35em;
+        bottom: 0.15em;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .buttonPrimary,
+    .buttonSecondary {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+
+    .list {
+        gap: 8px 12px;
+    }
+
+    h3 {
+        font-size: 14px;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero {
+        padding: 24px 14px;
+    }
+
+    .h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .buttonPrimary,
+    .buttonSecondary {
+        font-size: 15px;
+        border-radius: 12px;
+        padding: 11px 14px;
+    }
+
+    h3 {
+        font-size: 13px;
+    }
+
+    .list {
+        gap: 8px 10px;
+    }
+}

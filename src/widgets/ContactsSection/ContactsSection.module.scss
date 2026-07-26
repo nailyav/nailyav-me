@@ -1,0 +1,96 @@
+.section {
+    min-height: calc(100vh - 60px);
+    padding: 30px 100px;
+    color: var(--dark-pink);
+    box-sizing: border-box;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    font-family: var(--font-family-body);
+    color: black;
+    font-size: 24px;
+    font-weight: 200;
+    max-width: 100%;
+
+    .clickable {
+        color: black;
+        border-radius: 4px;
+        text-decoration: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        max-width: 100%;
+        word-break: break-word;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        &:active {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .section {
+        padding: 30px 64px;
+    }
+
+    .listItem {
+        font-size: 22px;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .section {
+        min-height: auto;
+        padding: 28px 32px;
+    }
+
+    .listItem {
+        font-size: 20px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 24px 20px;
+    }
+
+    .listItem {
+        gap: 8px;
+        font-size: 17px;
+    }
+
+    .listItem .clickable {
+        width: fit-content;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .section {
+        padding: 20px 16px;
+    }
+
+    .listItem {
+        font-size: 15px;
+        gap: 6px;
+    }
+}

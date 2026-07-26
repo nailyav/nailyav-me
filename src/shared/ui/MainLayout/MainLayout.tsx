@@ -1,23 +1,32 @@
 import React from 'react';
-import { Tooltip } from 'shared';
+import { GradientBackground, Tooltip } from 'shared';
 import styles from './MainLayout.module.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Header } from 'widgets';
 
 export const MainLayout: React.FC = () => {
+    const location = useLocation();
+    const isProjectPage = location.pathname === '/';
+
     return (
-        <Tooltip
-            tooltipContent={
-                <img
-                    src="https://www.citypng.com/public/uploads/preview/lovely-fluffy-kitty-transparent-background-7358116966754929nosjbdkzd.png"
-                    alt="Cat"
-                    style={{ width: '50px' }}
-                />
-            }
-            opacity={0}
-        >
-            <div className={styles.container}>
-                <Outlet />
-            </div>
-        </Tooltip>
+        <>
+            {/* {isProjectPage && <GradientBackground />} */}
+            <GradientBackground />
+            <Tooltip
+                tooltipContent={
+                    <img
+                        src="https://www.citypng.com/public/uploads/preview/lovely-fluffy-kitty-transparent-background-7358116966754929nosjbdkzd.png"
+                        alt="Cat"
+                        style={{ width: '50px' }}
+                    />
+                }
+                opacity={0}
+            >
+                <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }} id="about">
+                    <Header />
+                    <Outlet />
+                </div>
+            </Tooltip>
+        </>
     );
 };

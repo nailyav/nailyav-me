@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "ES2020",
+        "lib": ["DOM", "ES2020"],
         "module": "commonjs",
         "esModuleInterop": true,
         "strict": true,
@@ -10,7 +11,9 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "outDir": "./dist",
+        "rootDir": "./src",
         "baseUrl": ".",
+        // "ignoreDeprecations": "6.0",
         "paths": {
             "*": ["src/*"], 
             "widgets/*": ["src/widgets/*"],
@@ -23,7 +26,7 @@
     },
     "include": [
         "src/**/*",
-        "src/**/d.ts"
+        "src/**/*.d.ts"
     ],
     "exclude": ["node_modules"]
 }

@@ -1,0 +1,144 @@
+.flowers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.flower {
+    position: absolute;
+    top: -12%;
+    opacity: 0;
+    animation: flowerFall linear infinite;
+    will-change: transform, opacity;
+}
+
+.flower:nth-child(1) {
+    left: 4%;
+    font-size: 14px;
+    animation-duration: 12s;
+    animation-delay: 0s;
+}
+
+.flower:nth-child(2) {
+    left: 12%;
+    font-size: 18px;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    filter: blur(0.4px);
+}
+
+.flower:nth-child(3) {
+    left: 20%;
+    font-size: 12px;
+    animation-duration: 11s;
+    animation-delay: 4s;
+    filter: blur(0.8px);
+}
+
+.flower:nth-child(4) {
+    left: 29%;
+    font-size: 20px;
+    animation-duration: 16s;
+    animation-delay: 1s;
+}
+
+.flower:nth-child(5) {
+    left: 39%;
+    font-size: 16px;
+    animation-duration: 13s;
+    animation-delay: 3s;
+}
+
+.flower:nth-child(6) {
+    left: 50%;
+    font-size: 22px;
+    animation-duration: 17s;
+    animation-delay: 5s;
+    filter: blur(0.5px);
+}
+
+.flower:nth-child(7) {
+    left: 61%;
+    font-size: 13px;
+    animation-duration: 14s;
+    animation-delay: 1.5s;
+    filter: blur(0.9px);
+}
+
+.flower:nth-child(8) {
+    left: 71%;
+    font-size: 19px;
+    animation-duration: 18s;
+    animation-delay: 6s;
+}
+
+.flower:nth-child(9) {
+    left: 80%;
+    font-size: 15px;
+    animation-duration: 12.5s;
+    animation-delay: 2.5s;
+}
+
+.flower:nth-child(10) {
+    left: 88%;
+    font-size: 21px;
+    animation-duration: 16.5s;
+    animation-delay: 4.5s;
+    filter: blur(0.4px);
+}
+
+.flower:nth-child(11) {
+    left: 94%;
+    font-size: 11px;
+    animation-duration: 13.5s;
+    animation-delay: 3.5s;
+    filter: blur(1px);
+}
+
+.flower:nth-child(12) {
+    left: 97%;
+    font-size: 17px;
+    animation-duration: 15.5s;
+    animation-delay: 0.5s;
+}
+
+@keyframes flowerFall {
+    0% {
+        transform: translate3d(0, -10vh, 0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: var(--flower-opacity, 0.8);
+    }
+
+    35% {
+        transform: translate3d(6px, 30vh, 0) scale(0.92);
+        opacity: var(--flower-opacity, 0.8);
+    }
+
+    65% {
+        transform: translate3d(-4px, 65vh, 0) scale(0.75);
+        opacity: calc(var(--flower-opacity, 0.8) * 0.7);
+    }
+
+    100% {
+        transform: translate3d(3px, 105vh, 0) scale(0.55);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .flower:nth-child(n + 8) {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flower {
+        animation: none;
+        opacity: 0.18;
+        transform: none;
+    }
+}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимированный Градиент - Превью</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Вариант 3: Волновой эффект (активный) */
+        @keyframes waveGradient {
+            0% {
+                background: linear-gradient(
+                    to bottom,
+                    #FFC0DA 0px,
+                    #FFD4E5 400px,
+                    #FFFFFF 1300px,
+                    #F0EBFF 1500px,
+                    #DBD4FF 1700px
+                );
+            }
+            33% {
+                background: linear-gradient(
+                    to bottom,
+                    #FFD0E4 0px,
+                    #FFE0ED 400px,
+                    #FAFAFA 1300px,
+                    #E6DFFF 1500px,
+                    #E0D8FF 1700px
+                );
+            }
+            66% {
+                background: linear-gradient(
+                    to bottom,
+                    #FFB0CE 0px,
+                    #FFC8DD 400px,
+                    #FFFFFF 1300px,
+                    #DDD4F5 1500px,
+                    #D0C4F0 1700px
+                );
+            }
+            100% {
+                background: linear-gradient(
+                    to bottom,
+                    #FFC0DA 0px,
+                    #FFD4E5 400px,
+                    #FFFFFF 1300px,
+                    #F0EBFF 1500px,
+                    #DBD4FF 1700px
+                );
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            animation: waveGradient 12s ease-in-out infinite;
+            background-attachment: scroll;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card h2 {
+            color: #FF69B4;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .button {
+            background: rgba(255, 255, 255, 0.8);
+            color: #FF69B4;
+            border: 2px solid #FF69B4;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .button:hover {
+            background: #FF69B4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+        }
+
+        .button.active {
+            background: #FF69B4;
+            color: white;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Альтернативные анимации */
+        @keyframes gradientShift {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        @keyframes colorPulse {
+            0%, 100% {
+                background: linear-gradient(to bottom, #FFC0DA 0px, #FFFFFF 1300px, #DBD4FF 1300px);
+            }
+            50% {
+                background: linear-gradient(to bottom, #FFAAC8 0px, #FFFFFF 1300px, #D0C4F0 1300px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0%, 0% 0%; opacity: 1; }
+            50% { background-position: 100% 100%, 0% 0%; opacity: 0.95; }
+            100% { background-position: 0% 0%, 0% 0%; opacity: 1; }
+        }
+
+        .animation-shift body {
+            background: linear-gradient(135deg, #FFC0DA 0%, #FFD4E5 20%, #FFFFFF 40%, #F5F0FF 60%, #DBD4FF 80%, #E6DFFF 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite !important;
+        }
+
+        .animation-pulse body {
+            animation: colorPulse 10s ease-in-out infinite !important;
+        }
+
+        .animation-shimmer body {
+            background: 
+                linear-gradient(135deg, rgba(255, 192, 218, 0.3) 0%, transparent 50%, rgba(219, 212, 255, 0.3) 100%),
+                linear-gradient(to bottom, #FFC0DA 0px, #FFFFFF 1300px, #DBD4FF 1300px);
+            background-size: 200% 200%, 100% 100%;
+            animation: shimmer 8s ease-in-out infinite !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>✨ Анимированный Градиент ✨</h1>
+            <p class="subtitle">Красивые переливающиеся цвета</p>
+            
+            <div class="button-group">
+                <button class="button active" onclick="changeAnimation('wave')">Волны</button>
+                <button class="button" onclick="changeAnimation('shift')">Движение</button>
+                <button class="button" onclick="changeAnimation('pulse')">Пульсация</button>
+                <button class="button" onclick="changeAnimation('shimmer')">Мерцание</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card">
+                <h2>🎨 Типы анимаций</h2>
+                <p><strong>Волны:</strong> Плавные волновые переходы между оттенками</p>
+                <p><strong>Движение:</strong> Диагональное движение градиента</p>
+                <p><strong>Пульсация:</strong> Мягкое изменение насыщенности цветов</p>
+                <p><strong>Мерцание:</strong> Блестящий эффект с наложением</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h2>💫 Плавность</h2>
+                    <p>Все анимации используют ease-in-out для максимально плавных переходов</p>
+                </div>
+                <div class="card">
+                    <h2>🎯 Производительность</h2>
+                    <p>Оптимизированные CSS анимации без нагрузки на процессор</p>
+                </div>
+                <div class="card">
+                    <h2>📱 Адаптивность</h2>
+                    <p>Отлично работает на всех устройствах и экранах</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card">
+                <h2>🌈 Цветовая палитра</h2>
+                <p>Розовый (#FFC0DA) → Белый (#FFFFFF) → Лавандовый (#DBD4FF)</p>
+                <p>С дополнительными промежуточными оттенками для плавности</p>
+            </div>
+        </section>
+
+        <section class="section" style="padding-bottom: 4rem;">
+            <div class="card">
+                <h2>✨ Результат</h2>
+                <p>Красивый, живой фон который создает уникальную атмосферу вашего сайта!</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function changeAnimation(type) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.button');
+            
+            // Remove all animation classes
+            body.className = '';
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add new animation class
+            switch(type) {
+                case 'shift':
+                    body.classList.add('animation-shift');
+                    buttons[1].classList.add('active');
+                    break;
+                case 'pulse':
+                    body.classList.add('animation-pulse');
+                    buttons[2].classList.add('active');
+                    break;
+                case 'shimmer':
+                    body.classList.add('animation-shimmer');
+                    buttons[3].classList.add('active');
+                    break;
+                default:
+                    buttons[0].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
