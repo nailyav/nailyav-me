@@ -217,7 +217,7 @@ h3 {
 @media (max-width: 600px) {
     .hero {
         padding: 28px 18px;
-        gap: 40px;
+        gap: 30px;
     }
 
     .info {
@@ -227,7 +227,7 @@ h3 {
     .h1 {
         font-size: 34px;
         line-height: 1.1;
-        margin: 10px 0 30px 0;
+        margin: 20px 0 30px 0;
     }
 
     h2 {
@@ -289,6 +289,7 @@ h3 {
     }
 
     .list {
-        gap: 8px 10px;
+        justify-content: center;
+        gap: 8px 12px;
     }
 }

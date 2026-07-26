@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { BuildEnv } from './config/build/config';
 
 export default (env: BuildEnv) => {
@@ -15,6 +16,17 @@ export default (env: BuildEnv) => {
     const plugins = [
         new HtmlWebpackPlugin({
             template: resolve(__dirname, 'public', 'index.html'),
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: resolve(__dirname, 'public'),
+                    to: resolve(__dirname, 'build'),
+                    globOptions: {
+                        ignore: ['**/index.html'],
+                    },
+                },
+            ],
         }),
         new Dotenv(),
         new webpack.ProgressPlugin(),
@@ -40,7 +52,7 @@ export default (env: BuildEnv) => {
         },
         output: {
             path: resolve(__dirname, 'build'),
-            publicPath: isDev ? '/' : './',
+            publicPath: '/',
         },
         mode: mode,
         module: {
